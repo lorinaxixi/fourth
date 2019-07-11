@@ -8,6 +8,8 @@ import store from '@/store/index.js'
 //注册图片放大缩小组件
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
+//引入样式
+// import 'common/stylus/index.styl'
 Vue.use(Viewer, {
 	name:'Viewer',	
   defaultOptions: {
