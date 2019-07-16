@@ -4,14 +4,17 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import publicName from '@/api/public.js'
-import store from '@/store/index.js'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
+// import store from './store/index.js'
 //注册图片放大缩小组件
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
 //引入样式
 // import 'common/stylus/index.styl'
 Vue.use(Viewer, {
-	name:'Viewer',	
+	name:'Viewer',
   defaultOptions: {
     zIndex: 9999
   }
@@ -24,7 +27,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-	store,
+  // store,
   components: { App },
   template: '<App/>'
 })

@@ -5,16 +5,26 @@ import viewer from '@/components/viewer/viewer'
 import count from '@/components/count'
 import fristItem from '@/components/Example/fristItem'
 import fristItemO from '@/components/Example/fristItem1'
+import worksIndex from '@/components/works/index'
+
 Vue.use(Router)
 
 export default new Router({
 	mode:'history',
   routes: [
-		{
-		  path: '/fristItemO',
-		  name: 'fristItemO',
-		  component: fristItemO
-		},
+    {
+      //设置默认指向的路径
+      // redirect: '/worksIndex',
+      path: '/',
+      name: 'worksIndex',
+      component: worksIndex,
+    },
+    {
+      path: '/fristItemO',
+      name: 'fristItemO',
+      component: fristItemO
+    },
+
 		{
 		  path: '/fristItem',
 		  name: 'fristItem',
@@ -30,10 +40,6 @@ export default new Router({
 		  name: 'viewer',
 		  component: viewer
 		},
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
+
   ]
 })
