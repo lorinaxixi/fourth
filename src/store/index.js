@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import action from './action'
+import actions from './action'
 Vue.use(Vuex)
 //构造函数
 // const store=  new Vuex.Store({
