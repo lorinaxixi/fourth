@@ -6,25 +6,29 @@ import count from '@/components/count'
 import fristItem from '@/components/Example/fristItem'
 import fristItemO from '@/components/Example/fristItem1'
 import worksIndex from '@/components/works/index'
-
+import login from '@/components/login/login'
 Vue.use(Router)
 
 export default new Router({
 	mode:'history',
   routes: [
     {
-      //设置默认指向的路径
+      // 设置默认指向的路径
       // redirect: '/worksIndex',
-      path: '/',
+      path: '/worksIndex',
       name: 'worksIndex',
       component: worksIndex,
+    },
+    {
+      path: '/',
+      name: 'login',
+      component: login
     },
     {
       path: '/fristItemO',
       name: 'fristItemO',
       component: fristItemO
     },
-
 		{
 		  path: '/fristItem',
 		  name: 'fristItem',
