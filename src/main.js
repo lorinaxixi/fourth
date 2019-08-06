@@ -8,6 +8,8 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 import store from './store/index.js'
+import Axios from 'axios'
+import vuex from 'vuex'
 //注册图片放大缩小组件
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
@@ -28,6 +30,8 @@ new Vue({
   el: '#app',
   router,
   store,
+  Axios,
+  vuex,
   components: { App },
   template: '<App/>'
 })

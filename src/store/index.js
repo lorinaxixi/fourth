@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import actions from './action'
+import * as actions from './actions'
 Vue.use(Vuex)
 //构造函数
 // const store=  new Vuex.Store({
@@ -19,15 +19,19 @@ Vue.use(Vuex)
 // })
 const state={
     count:0,
-		show:false
+		show:false,
+    login:false
 }
 const mutations ={
-    increment (state) {
+    increment (state,payload) {
 		  state.count++
     },
-    decrement (state) {
+    decrement (state,payload) {
 		  state.count--
-		}
+		},
+    login(state,payload) {
+      state.login = payload
+    }
 }
 // 创建 store 实例
 export default new Vuex.Store({

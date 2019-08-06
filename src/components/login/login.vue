@@ -3,8 +3,8 @@
       <div class="loginCenter">
         <div class="title">登录</div>
         <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2"  class="demo-ruleForm">
-          <el-form-item  prop="age">
-            <el-input v-model.number="ruleForm2.age" placeholder="请输入手机号"></el-input>
+          <el-form-item  prop="phone">
+            <el-input v-model.number="ruleForm2.phone" placeholder="请输入手机号"></el-input>
           </el-form-item>
           <el-form-item  prop="pass">
             <el-input type="password" v-model="ruleForm2.pass" auto-complete="off" placeholder="请输入密码"></el-input>
@@ -22,6 +22,7 @@
     </div>
 </template>
 <script>
+  import {giveUp} from '@/api/api.js'
   export default {
     name:'login',
     data() {
@@ -57,7 +58,7 @@
         ruleForm2: {
           pass: '',
           checkPass: '',
-          age: ''
+          phone: ''
         },
         rules2: {
           pass: [
@@ -66,19 +67,35 @@
           checkPass: [
             { validator: validatePass2, trigger: 'blur' }
           ],
-          age: [
+          phone: [
             { validator: checkPhone, trigger: 'blur' }
           ]
         }
       };
     },
+    created(){
+      this.diquList()
+    },
     methods: {
+      diquList(){
+        const params ={
+          type:3,
+          id:10034
+        }
+        giveUp(params).then((data) => {
+          console.log('点赞',data)
+        })
+      },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
             alert('submit!');
+            this.$store.commit('login',true)
+            console.log(this.$store.state.login)
           } else {
             console.log('error submit!!');
+            this.$store.commit('login',false)
+            console.log(this.$store.state.login)
             return false;
           }
         });
